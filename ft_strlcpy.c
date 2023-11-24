@@ -6,7 +6,7 @@
 /*   By: aakouhar <aakouhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:02:35 by aakouhar          #+#    #+#             */
-/*   Updated: 2023/11/14 16:56:27 by aakouhar         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:32:24 by aakouhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,12 @@ size_t	ft_strlcpy(char *dest, char *src, size_t size)
 	}
 	return (src_size);
 }
+/* #include <stdio.h>
+#include <string.h>
+int	main(void)
+{
+	//char *src = "hello";
+	char dest[50];
+	size_t i = strlcpy(dest, "1", 0);
+	printf("%zu\n%s\n", i, dest);
+} */

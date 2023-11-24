@@ -6,23 +6,24 @@
 /*   By: aakouhar <aakouhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 09:54:29 by aakouhar          #+#    #+#             */
-/*   Updated: 2023/11/23 09:24:04 by aakouhar         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:47:31 by aakouhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_free(char **arr)
+static char	**ft_free(char **arr)
 {
 	int	i;
 
 	i = 0;
-	while (arr[i])
+	while (arr && arr[i])
 	{
 		free(arr[i]);
 		i++;
 	}
 	free(arr);
+	return (NULL);
 }
 
 static int	count_words(char const *s, char c)
@@ -84,6 +85,7 @@ char	**ft_split(char const *s, char c)
 	int		count_wrds;
 	char	**arr;
 	int		checker;
+	char	**ptr;
 
 	if (!s)
 		return (NULL);
@@ -94,20 +96,25 @@ char	**ft_split(char const *s, char c)
 	arr[count_wrds] = NULL;
 	checker = ft_fill(arr, s, c, count_wrds);
 	if (checker == 0)
-		ft_free(arr);
+	{
+		ptr = ft_free(arr);
+		return (ptr);
+	}
 	return (arr);
 }
+
 /* #include <stdio.h>
 
-int	main(void)
+ int	main(void)
 {
 	// char *str = "This is a test string";
-	char **words = ft_split("ouuss,hh", ',');
+	char **words = ft_split("hello!", ' ');
 
 	for (int i = 0; words[i] != NULL; i++)
 	{
 		printf("%s\n", words[i]);
 	}
 
+
 	return (0);
-} */
+}  */

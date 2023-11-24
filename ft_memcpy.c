@@ -6,7 +6,7 @@
 /*   By: aakouhar <aakouhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 16:28:22 by aakouhar          #+#    #+#             */
-/*   Updated: 2023/11/22 15:46:44 by aakouhar         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:58:03 by aakouhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ void	*ft_memcpy(void *dst, void *src, size_t n)
 	}
 	return (dst);
 }
-/* #include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
 
-int	main(void)
-{
-	char *str = "ali";
-	char str2[7];
-	void *ptr;
-	ptr = memcpy(str2, str, 6);
-	printf("%s\n", (char *)ptr);
-	printf("%c\n", str2[5]);
-} */
+// int	main(void)
+// {
+// 	char dest[12];
+// 	void *ptr;
+// 	ptr = ft_memcpy(dest, "coucou", 0);
+// 	// ptr = memcpy(dest, "coucou", 0);
+
+// 	printf("%s\n", (char *)ptr);
+// }
