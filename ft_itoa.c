@@ -6,7 +6,7 @@
 /*   By: aakouhar <aakouhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 09:49:38 by aakouhar          #+#    #+#             */
-/*   Updated: 2023/11/23 14:33:10 by aakouhar         ###   ########.fr       */
+/*   Updated: 2023/11/25 09:32:32 by aakouhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,41 +32,39 @@ static int	ft_count(long n)
 	return (count);
 }
 
-static void	ft_fill(char *str, int count, long num)
+static void	ft_fill(char *str, long nb, int count)
 {
-	while (count >= 0)
+	if (nb == 0)
+		str[0] = '0';
+	if (nb < 0)
 	{
-		if (str[count] == '-')
-			break ;
-		str[count] = (num % 10) + '0';
-		num = num / 10;
-		if (count == 0)
-			break ;
+		str[0] = '-';
+		nb = -nb;
+	}
+	while (nb)
+	{
+		str[count] = nb % 10 + '0';
+		nb /= 10;
 		count--;
 	}
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
 	int		count;
-	long	num;
+	char	*str;
+	long	nb;
 
-	num = (long)n;
-	count = ft_count(num);
-	str = (char *)malloc((count + 1) * sizeof(char));
+	nb = (long)n;
+	count = ft_count(n);
+	str = malloc(count + 1);
 	if (!str)
 		return (NULL);
-	if (num < 0)
-	{
-		num = -num;
-		str[0] = '-';
-	}
 	str[count] = '\0';
-	count--;
-	ft_fill(str, count, num);
+	ft_fill(str, nb, (count - 1));
 	return (str);
 }
+
 /* #include <stdio.h>
 #include <limits.h>
 int main()
@@ -74,6 +72,6 @@ int main()
 	printf("%s\n", ft_itoa(INT_MAX));
 	printf("%s\n", ft_itoa(INT_MIN));
 	printf("%s\n", ft_itoa(-1234));
-	printf("%s\n", ft_itoa(-0));
+	printf("%s\n", ft_itoa(0));
 	printf("%s\n", ft_itoa(858947));
 } */
