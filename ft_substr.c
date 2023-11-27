@@ -43,7 +43,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 /* #include <stdio.h>
 int	main(void)
 {
-	//char *s = "hello ana tiima";
+	//char *s = "hello world";
 	char *str = ft_substr("", 6, 3);
 	printf("%s\n", str);
 } */
